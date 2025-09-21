@@ -1,10 +1,13 @@
 # SVD
 ---------------------
-W (U x sigma x V.T) x hidden_states
-W -> U x S | V.T 파라미터 개수 감소
-m x n -> r(m + n)
-vram memory 60GB -> 37.8GB
+W (U x sigma x V.T) x hidden_states \\
+W -> U x S | V.T 파라미터 개수 감소 \\
+m x n -> r(m + n) \\
+vram memory 60GB -> 37.8GB \\
 ```python
+from transformers import AutoConfig, AutoModelForCausalLM
+from qwen_MoE import SVDQwen3MoeSparseMoeBlock
+
 model_name = "Qwen/Qwen3-30B-A3B"
 
 model = AutoModelForCausalLM.from_pretrained(
@@ -12,7 +15,6 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype="auto",
     device_map="auto"
 )
-from qwen_MoE import SVDQwen3MoeSparseMoeBlock
 for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
     if i % 5 == 0:
         before_mem = torch.cuda.memory_allocated() / 1e9
