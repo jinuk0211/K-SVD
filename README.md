@@ -1,9 +1,12 @@
 # SVD
 ---------------------
-W (U x sigma x V.T) x hidden_states \\
-W -> U x S | V.T 파라미터 개수 감소 \\
-m x n -> r(m + n) \\
-vram memory 60GB -> 37.8GB \\
+W (U x sigma x V.T) x hidden_states 
+
+W -> U x S | V.T 파라미터 개수 감소 
+m x n -> r(m + n) 
+
+vram memory 60GB -> 37.8GB 
+
 ```python
 from transformers import AutoConfig, AutoModelForCausalLM
 from qwen_MoE import SVDQwen3MoeSparseMoeBlock
