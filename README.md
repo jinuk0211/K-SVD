@@ -52,6 +52,10 @@ for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
 # shared-svd
 ----------------------
 share_V = True
-: frequency기반 128개중 하나 선택해 공유
+
+: frequency 기반 가장 많이 router가 선택하는 expert의 v matrix를 공유
+
+128개중 하나 선택해 공유
+
 # K-SVD
 ----------------------
