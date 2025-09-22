@@ -6,7 +6,7 @@ W -> U x S | V.T 파라미터 개수 감소
 
 m x n -> r(m + n) 
 
-vram memory 61.064270336 -> 37.8GB 
+vram memory 61.06GB -> 37.8GB 
 
 A100 PCle -> A40, RTX A6000
 
