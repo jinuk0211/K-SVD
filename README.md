@@ -9,6 +9,7 @@ m x n -> r(m + n)
 vram memory 60GB -> 37.8GB 
 
 ```python
+svd.ipynb 파일 일부를 작성
 from transformers import AutoConfig, AutoModelForCausalLM
 from svd_moe import SVDQwen3MoeSparseMoeBlock
 
