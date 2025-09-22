@@ -10,7 +10,7 @@ vram memory 60GB -> 37.8GB
 
 ```python
 from transformers import AutoConfig, AutoModelForCausalLM
-from qwen_MoE import SVDQwen3MoeSparseMoeBlock
+from svd_moe import SVDQwen3MoeSparseMoeBlock
 
 model_name = "Qwen/Qwen3-30B-A3B"
 
