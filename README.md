@@ -58,6 +58,7 @@ for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
 ----------------------
 ```python
 # SVDQwen3MoeSparseMoeblock의 forward를 아래 버젼으로 바꾸기
+# self.beta 값으로 pruning할 expert 정도 조절 가능
 
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
         """ """
