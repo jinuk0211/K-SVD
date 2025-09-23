@@ -5,8 +5,6 @@ Expert의 가중치 행렬 `W`에 대해 **특이값 분해(SVD, Singular Value 
 
 vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 --------------------------------------------
-<img width="899" height="456" alt="image" src="https://github.com/user-attachments/assets/6095d026-e5f6-46d0-b896-4d5b8e22488e" />
-<img width="1171" height="367" alt="image" src="https://github.com/user-attachments/assets/40c18d90-832f-4bb9-be35-a646d2fa36c4" />
 
 ---
 
@@ -25,6 +23,9 @@ vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 - `r << min(m, n)`일 때 파라미터 수가 크게 감소
 
 ---
+
+<img width="899" height="456" alt="image" src="https://github.com/user-attachments/assets/6095d026-e5f6-46d0-b896-4d5b8e22488e" />
+<img width="1171" height="367" alt="image" src="https://github.com/user-attachments/assets/40c18d90-832f-4bb9-be35-a646d2fa36c4" />
 
 A100 PCle -> A40, RTX A6000
 
