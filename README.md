@@ -43,12 +43,17 @@ model = AutoModelForCausalLM.from_pretrained(
     torch_dtype="auto",
     device_map="auto"
 )
+# with open(expert_freq_path, 'r') as f:
+#     expert_freq = json.load(f)
+# svd_scale = torch.load(svd_scale_path, map_location='cpu')
+# fisher_info = torch.load(fisher_path, map_location="cpu")
+import gc
 for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
     if i % 5 == 0:
         before_mem = torch.cuda.memory_allocated() / 1e9
         print(f"Layer {i} - Before: {before_mem:.2f}GB")
     
-    # 기존 MLP 백업
+    # 기존 MLP
     old_mlp = model.model.layers[i].mlp
     device = old_mlp.gate.weight.device
     
@@ -57,13 +62,17 @@ for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
     Merge_MoE_Block.SVD(old_mlp)
     
     # 교체 전 기존 MLP 명시적 삭제
-    model.model.layers[i].mlp = None  # 참조 끊기
-    del old_mlp                       # 명시적 삭제
+    # model.model.layers[i].mlp = None  # 참조 끊기
+    gc.collect()
     torch.cuda.empty_cache()          # 캐시 정리
     
-    # 새 MLP 할당
+    #cache 메모리 줄여주는 부분
+    old_mlp.to('cpu')
+    gc.collect()
+    torch.cuda.empty_cache()
     model.model.layers[i].mlp = Merge_MoE_Block
     del Merge_MoE_Block
+    del old_mlp #cpu에서 제거
     
     # 메모리 정리
     torch.cuda.empty_cache()
