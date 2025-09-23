@@ -1,17 +1,30 @@
-SVD decompositoin
-=============================
-expert weight w -> (U x sigma x V.T)
+# 📘 SVD 분해를 통한 Expert Weight 압축
 
-W -> U x S | V.T 파라미터 개수 감소 
+Expert의 가중치 행렬 `W`에 대해 **특이값 분해(SVD, Singular Value Decomposition)** 를 적용
 
-#가중치 행렬 변화
-
-m x n -> rank (m + n) 
 
 vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 --------------------------------------------
 <img width="899" height="456" alt="image" src="https://github.com/user-attachments/assets/6095d026-e5f6-46d0-b896-4d5b8e22488e" />
 <img width="1171" height="367" alt="image" src="https://github.com/user-attachments/assets/40c18d90-832f-4bb9-be35-a646d2fa36c4" />
+
+---
+
+## 🔹 가중치 행렬 변화
+- 기존: `W ∈ R^(m × n)`
+- 분해 후 (rank-r):
+  - `U ∈ R^(m × r)`
+  - `Σ ∈ R^(r × r)`
+  - `Vᵀ ∈ R^(r × n)`
+
+---
+
+## 🔹 파라미터 수 변화
+- Before: `m × n`
+- After: `r × (m + n)`
+- `r << min(m, n)`일 때 파라미터 수가 크게 감소
+
+---
 
 A100 PCle -> A40, RTX A6000
 
