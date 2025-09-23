@@ -1,5 +1,5 @@
-# 📘 SVD 분해를 통한 Expert Weight 압축
-result.ipynb 실행
+# 📘 SVD 분해를 통한 Expert Weight 압축 (result.ipynb 실행)
+
 Expert의 가중치 행렬 `W`에 대해 **특이값 분해(SVD, Singular Value Decomposition)** 를 적용
 
 <img width="1197" height="851" alt="image" src="https://github.com/user-attachments/assets/cbfa4e61-4dbe-4f44-8306-47a868a0c536" />
