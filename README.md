@@ -4,8 +4,8 @@ expert weight w -> (U x sigma x V.T)
 
 W -> U x S | V.T 파라미터 개수 감소 
 
-weight matrix | m x n ->
-decompsed weight matrices | rank (m + n) 
+#가중치 행렬 변화
+m x n -> rank (m + n) 
 
 vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 --------------------------------------------
