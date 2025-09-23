@@ -145,3 +145,4 @@ share_V = True
 
 # K-SVD
 ----------------------
+dictionary learning의 일종으로 expert weights들을 dict를 기반으로 해서 표현
