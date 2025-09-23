@@ -1,6 +1,6 @@
 SVD decompositoin
 =============================
-W(U x sigma x V.T) @ hidden_states 
+textbf{W} (U x sigma x V.T) @ hidden_states 
 
 W -> U x S | V.T 파라미터 개수 감소 
 
