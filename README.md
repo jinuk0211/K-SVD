@@ -32,7 +32,7 @@ vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 A100 PCle -> A40, RTX A6000
 
 ```python
-svd.ipynb 파일 일부를 작성
+result.ipynb 파일 일부를 작성
 from transformers import AutoConfig, AutoModelForCausalLM
 from svd_moe import SVDQwen3MoeSparseMoeBlock
 
