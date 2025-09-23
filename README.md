@@ -81,6 +81,30 @@ for i in tqdm(range(len(model.model.layers)), desc="Merging layers"):
         after_mem = torch.cuda.memory_allocated() / 1e9
         print(f"Layer {i} - After: {after_mem:.2f}GB, Saved: {before_mem-after_mem:.2f}GB")
 
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+prompt = "how is the weather today"
+messages = [
+    {"role": "user", "content": prompt}
+]
+text = tokenizer.apply_chat_template(
+    messages,
+    tokenize=False,
+    add_generation_prompt=True,
+    enable_thinking=True # Switches between thinking and non-thinking modes. Default is True.
+)
+model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
+
+with torch.autocast(device_type="cuda",dtype=torch.bfloat16):
+    generated_ids = model.generate(
+        **model_inputs,
+        max_new_tokens=100
+    )
+output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist() 
+print('output generated')
+
+
 ```
 #dynamic skipping
 ----------------------
