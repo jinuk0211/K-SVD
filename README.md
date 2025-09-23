@@ -1,10 +1,11 @@
 SVD decompositoin
 =============================
-textbf{W} (U x sigma x V.T) @ hidden_states 
+expert weight w -> (U x sigma x V.T)
 
 W -> U x S | V.T 파라미터 개수 감소 
 
-m x n -> r(m + n) 
+weight matrix | m x n ->
+decompsed weight matrices | rank (m + n) 
 
 vram memory 사용량 61.06GB -> 37.8GB, 20.42GB(rank = 167)
 --------------------------------------------
