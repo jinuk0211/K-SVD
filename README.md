@@ -7,6 +7,8 @@ W -> U x S | V.T 파라미터 개수 감소
 m x n -> r(m + n) 
 
 vram memory 사용량 61.06GB -> 37.8GB 
+<img width="899" height="456" alt="image" src="https://github.com/user-attachments/assets/6095d026-e5f6-46d0-b896-4d5b8e22488e" />
+<img width="1171" height="367" alt="image" src="https://github.com/user-attachments/assets/40c18d90-832f-4bb9-be35-a646d2fa36c4" />
 
 A100 PCle -> A40, RTX A6000
 
